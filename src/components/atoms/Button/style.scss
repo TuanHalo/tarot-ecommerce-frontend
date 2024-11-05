@@ -1,0 +1,5 @@
+@use '@/styles/global' as global;
+
+.a-button {
+    background-color: global.$casual-red;
+}

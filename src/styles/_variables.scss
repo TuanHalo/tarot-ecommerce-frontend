@@ -1,0 +1,49 @@
+
+/*=============================================
+=                   Colors                    =
+=============================================*/
+$white: #FFFFFF;
+$white-15: #FFFFFF26;
+$white-80: #FFFFFFCC;
+$sonic-silver: #777777;
+$casual-red: #AC1D1B;
+$american-yellow: #EBBC00;
+$american-yellow-80: #EBBC00CC;
+$sunglow: #FFCA40;
+/*=====  End of Colors  ======*/
+
+
+/*=============================================
+=                 Typography                  =
+=============================================*/
+
+
+
+/*=====  End of Typography  ======*/
+
+
+/*=============================================
+=                 Breakpoints                 =
+=============================================*/
+$breakpoints: (
+    // Mobile
+    'xs': 20rem, // 320px
+    'sm': 23.4375rem, // 375px
+    'md': 26.5625rem, // 425px
+    'mobile-landscape': 41.6875rem, // 667px
+    'mobile-landscape-lg': 57.9375rem, // 927px
+
+    // Tablet
+    'tablet': 48rem, // 768px
+    'tablet-landscape': 64rem, // 1024px
+    'tablet-pro': 64rem, // 1024px
+    'tablet-pro-landscape': 85.4375rem, // 1367px
+
+    // Desktop
+    'laptop': 90rem, // 1440px
+    'desktop': 120rem, // 1920px
+    'desktop-large': 160rem, // 2560px
+);
+
+/*=====  End of Breakpoints  ======*/
+

@@ -1,0 +1,77 @@
+@use './variables' as variables;
+
+@mixin breakpoint-up($breakpoint) {
+    @if map-has-key(variables.$breakpoints, $breakpoint) {
+        @media (min-width: map-get(variables.$breakpoints, $breakpoint)) {
+            @content;
+        }
+    } @else {
+        @warn "Invalid breakpoint: #{$breakpoint}";
+    }
+}
+
+@mixin breakpoint-down($breakpoint) {
+    @if map-has-key(variables.$breakpoints, $breakpoint) {
+        @media (max-width: calc(map-get(variables.$breakpoints, $breakpoint) - 1px)) {
+            @content;
+        }
+    } @else {
+        @warn "Invalid breakpoint: #{$breakpoint}";
+    }
+}
+
+@mixin breakpoint-between($min, $max) {
+    @if map-has-key(variables.$breakpoints, $min) and map-has-key(variables.$breakpoints, $max) {
+        @media (min-width: map-get(variables.$breakpoints, $min)) and (max-width: calc(map-get(variables.$breakpoints, $max) - 1px)) {
+            @content;
+        }
+    } @else {
+        @warn "Invalid breakpoint: #{$breakpoint}";
+    }
+}
+
+@mixin portrait {
+    @media (orientation: portrait) {
+        @content;
+    }
+}
+
+@mixin landscape {
+    @media (orientation: landscape) {
+        @content;
+    }
+}
+
+@mixin mobile-only {
+    @include breakpoint-down("tablet") {
+        @content;
+    }
+}
+
+@mixin mobile-landscape {
+    @include breakpoint-down("mobile-landscape-lg") {
+        @include landscape() {
+            @content;
+        }
+    }
+}
+
+@mixin tablet-only {
+    @include breakpoint-between("tablet", "laptop") {
+        @content;
+    }
+}
+
+@mixin tablet-landscape {
+    @include breakpoint-between("tablet", "tablet-pro-landscape") {
+        @include landscape() {
+            @content;
+        }
+    }
+}
+
+@mixin desktop-only {
+    @include breakpoint-up("laptop") {
+        @content;
+    }
+}
