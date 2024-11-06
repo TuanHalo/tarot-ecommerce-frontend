@@ -1,6 +1,10 @@
+import './style.scss'
+
 const SignIn = () => {
     return (
-        <div>SignIn page</div>
+        <form className='p-registration'>
+            <h3 className='p-registration_title'>REGISTRATION</h3>
+        </form>
     )
 }
 

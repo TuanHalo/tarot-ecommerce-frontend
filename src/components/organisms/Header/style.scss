@@ -1,0 +1,17 @@
+@use '@/styles/global' as global;
+
+.o-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 19px 48px 19px 33px;
+    position: relative;
+    box-shadow: 0px 4px 4px 0px global.$white-20;
+
+    &_left {
+        display: flex;
+        justify-content: start;
+        align-items: center;
+        gap: 104px;
+    }
+} 

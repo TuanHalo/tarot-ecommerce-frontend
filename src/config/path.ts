@@ -12,3 +12,29 @@ export const PATH = {
     signup: '/signup',
     resetPassword: '/reset-password'
 }
+
+export const NAV_LIST = [
+    {
+        name: 'Product',
+        href: PRODUCT_PATH
+    },
+    {
+        name: 'Consultant',
+        href: CONSULTANT_PATH
+    },
+    {
+        name: 'Management',
+        href: PATH.management
+    }
+]
+
+export const NAV_LOGIN = [
+    {
+        name: 'Log In',
+        href: PATH.signin
+    },
+    {
+        name: 'Register',
+        href: PATH.signup
+    }
+]

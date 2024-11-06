@@ -1,0 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+body {
+  background-image: url('/public/images/bg.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  font-family: "Bree Serif", serif;
+  width: 100vw;
+  height: 100vh;
+}
+
+body::after {
+  content: "";
+  background-color: #000000;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 20% ;
+  z-index: -1;
+}
+
+#root {
+  height: inherit;
+}

@@ -1,12 +1,13 @@
-import { UserDto } from "@/dtos/UserDtos"
+import { useAuth } from "@/stores/AuthContext"
 import { Navigate, Outlet } from "react-router-dom"
 
 type AuthRouterProps = {
-    user: UserDto,
     redirect ?: string
 }
 
-const AuthRouter = ({ user, redirect = '/' }: AuthRouterProps) => {
+const AuthRouter = ({ redirect = '/' }: AuthRouterProps) => {
+    const { user } = useAuth()
+
     if (user) return <Navigate to={redirect} />
     return <Outlet />
 }

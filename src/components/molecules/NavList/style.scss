@@ -1,0 +1,26 @@
+@use '@/styles/global' as global;
+
+.m-navList {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 40px;
+    list-style-type: none;
+
+    &_item {
+
+        &--link {
+            text-decoration: none;
+            color: global.$navListItem-color;
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 32.59px;
+            padding: 16px 40px;
+
+            &.active {
+                 background-color: global.$hotMagenta-40;
+                 border-radius: 400px;
+            }
+        }
+    }
+}
