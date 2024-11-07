@@ -1,5 +1,5 @@
 import { PATH } from "@/config/path";
-import { UserDto } from "@/dtos/UserDtos";
+import { UserDto } from "@/dtos/User/UserDtos";
 import { authService, LoginTypes } from "@/services/auth.service";
 import { userService } from "@/services/user.service";
 import { clearToken, setToken } from "@/utils/token";
