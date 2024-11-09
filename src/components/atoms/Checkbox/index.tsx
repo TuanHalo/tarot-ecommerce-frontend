@@ -1,16 +1,16 @@
-import './style.scss'
+import "./index.scss";
 
 type CheckboxProps = {
-    message: string
-}
+  message: string;
+};
 
 const Checkbox = ({ message }: CheckboxProps) => {
-    return (
-        <div className="a-checkbox">
-           <input type="checkbox" name="" id="" /> 
-           <label>{ message }</label>
-        </div>
-    )
-}
+  return (
+    <div className="a-checkbox">
+      <input type="checkbox" name="" id="" />
+      <label>{message}</label>
+    </div>
+  );
+};
 
-export default Checkbox
+export default Checkbox;

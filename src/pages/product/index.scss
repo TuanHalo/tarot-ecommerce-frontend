@@ -1,0 +1,30 @@
+@use "@/styles/global" as global;
+
+$select-text-color: #777777;
+$select-bg-color: #ffffffcc;
+
+.p-product {
+  &_search {
+    @include global.flex();
+    gap: 16px;
+    margin-bottom: 40px;
+
+    select {
+      border-radius: 8px;
+      padding: 16px 40px;
+      color: $select-text-color;
+      font-size: 20px;
+      appearance: none;
+      background-color: $select-bg-color;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &_list {
+    @include global.flex($wrap: wrap);
+    gap: 30px;
+  }
+}

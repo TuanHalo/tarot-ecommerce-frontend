@@ -1,0 +1,12 @@
+@use "@/styles/global" as global;
+
+.o-header {
+  @include global.flex($justify: space-between, $align: center);
+  padding: 19px 48px 19px 33px;
+  box-shadow: 0px 4px 4px 0px #ffffff33;
+
+  &_left {
+    @include global.flex($align: center);
+    gap: 104px;
+  }
+}

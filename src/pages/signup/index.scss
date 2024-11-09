@@ -1,0 +1,56 @@
+@use "@/styles/global" as global;
+
+$title-color: #ffffff;
+$line-color: #ffffff;
+$bg-color: #ffffff26;
+$login-text-color: #ffffff;
+$login-link-color: #ffca40;
+
+.p-registration {
+  @include global.flex($justify: center, $align: center);
+
+  &_form {
+    @include global.flex($direction: column, $align: center);
+    background-color: $bg-color;
+    backdrop-filter: blur(15px);
+    padding: 60px 80px;
+    border-radius: 24px;
+    width: fit-content;
+
+    &--title {
+      color: $title-color;
+      font-size: 48px;
+      font-weight: 400;
+      text-align: center;
+      width: 100%;
+
+      &::after {
+        content: "";
+        display: block;
+        margin-block: 32px;
+        border-top: 1px solid $line-color;
+      }
+    }
+
+    &--field {
+      @include global.flex($direction: column, $align: center);
+      gap: 40px;
+    }
+
+    &--login {
+      margin-top: 32px;
+      font-size: 24px;
+      font-weight: 400;
+
+      span {
+        color: $login-text-color;
+      }
+
+      a {
+        color: $login-link-color;
+        text-decoration: none;
+        margin-left: 16px;
+      }
+    }
+  }
+}

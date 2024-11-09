@@ -1,0 +1,38 @@
+@use "@/styles/global" as global;
+
+$label-text-color: #ffffff;
+$border-color: #ffffff;
+$check-color: #ffffff;
+
+.a-checkbox {
+  @include global.flex($justify: center, $align: center);
+  margin-block: 32px;
+
+  input {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: 1px solid $border-color;
+    border-radius: 4px;
+    appearance: none;
+    background-color: none;
+
+    &[type="checkbox"]:checked::after {
+      content: "";
+      position: absolute;
+      border: solid $check-color;
+      border-width: 0 4px 4px 0;
+      transform: translate(-50%, -60%) rotate(45deg);
+      top: 50%;
+      left: 50%;
+      width: 9px;
+      height: 18px;
+    }
+  }
+
+  label {
+    color: $label-text-color;
+    font-size: 20px;
+    margin-left: 16px;
+  }
+}

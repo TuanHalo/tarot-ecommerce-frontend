@@ -10,8 +10,15 @@ import PrivateRouter from "@/components/organisms/PrivateRouter"
 import Management from "@/pages/management"
 import { PATH } from "@/config/path"
 import AuthRouter from "@/components/organisms/AuthRouter"
-import ConsultantDetail from "@/pages/consultant/[slug]-id[id]"
-import ProductDetail from "@/pages/product/[slug]-id[id]"
+import ConsultantDetail from "@/pages/consultant/[slug]"
+import ProductDetail from "@/pages/product/[slug]"
+import Statistic from "@/pages/management/statistic"
+import Schedule from "@/pages/management/schedule"
+import ManagementProduct from "@/pages/management/product"
+import ChangeProductInfo from "@/pages/management/[id]"
+import TabLayout from "@/components/templates/TabLayout"
+import Profile from "@/pages/profile"
+import BankInformation from "@/pages/profile/bank"
 
 export const routers = [
     {
@@ -37,8 +44,11 @@ export const routers = [
             },
             {
                 path: PATH.product,
-                element: <Product />,
                 children: [
+                    {
+                        index: true,
+                        element: <Product />,
+                    },
                     {
                         path: PATH.productDetail,
                         element: <ProductDetail />
@@ -67,7 +77,43 @@ export const routers = [
                 children: [
                     {
                         path: PATH.management,
-                        element: <Management />
+                        element: <TabLayout />,
+                        children: [
+                            {
+                                index: true,
+                                element: <Management />
+                            },
+                            {
+                                path: PATH.statistic,
+                                element: <Statistic />
+                            },
+                            {
+                                path: PATH.schedule,
+                                element: <Schedule />
+                            },
+                            {
+                                path: PATH.productManagement,
+                                element: <ManagementProduct />
+                            },
+                            {
+                                path: PATH.changeProductDetail,
+                                element: <ChangeProductInfo />
+                            }
+                        ]
+                    },
+                    {
+                        path: PATH.profile,
+                        element: <TabLayout />,
+                        children: [
+                            {
+                                index: true,
+                                element: <Profile />
+                            },
+                            {
+                                path: PATH.bank,
+                                element: <BankInformation />
+                            }
+                        ]
                     }
                 ]
             },

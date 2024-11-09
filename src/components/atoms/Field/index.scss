@@ -1,0 +1,35 @@
+$field-text-color: #777777;
+$field-bg-color: #ffffffcc;
+$field-text-error-color: #ffffff;
+
+.a-field {
+  position: relative;
+
+  input {
+    color: $field-text-color;
+    background-color: $field-bg-color;
+    font-size: 20px;
+    padding: 16px 40px 16px 80px;
+    border-radius: 8px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  img {
+    position: absolute;
+    top: 50%;
+    left: 40px;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+  }
+
+  span {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    color: $field-text-error-color;
+  }
+}

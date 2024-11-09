@@ -7,6 +7,6 @@ export type LoginTypes = {
 
 export const authService = {
     login(data: LoginTypes) {
-        return api.post(`${AUTHENTICATION_API}`, data)
+        return api.post(`${AUTHENTICATION_API}/login`, data)
     }
 }

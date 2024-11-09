@@ -1,0 +1,61 @@
+@use "@/styles/global" as global;
+
+$title-text-color: #ffcc33;
+$card-bg-color: #ffffff26;
+$topic-text-color: #777777;
+$topic-bg-color: #ffffffcc;
+$description-text-color: #ffffff;
+$sold-text-color: #ffffff;
+
+.m-consultantCard {
+  @include global.flex(column, center, center);
+  flex: 0 0 530px;
+  gap: 24px;
+  background-color: $card-bg-color;
+  backdrop-filter: blur(15px);
+  padding: 48px 32px;
+  border-radius: 24px;
+
+  &_img {
+    width: 320px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  &_title {
+    color: $title-text-color;
+    font-size: 40px;
+  }
+
+  &_topic {
+    @include global.flex($justify: center, $wrap: wrap);
+    width: 100%;
+    gap: 8px;
+
+    span {
+      padding: 4px 24px;
+      color: $topic-text-color;
+      font-size: 20px;
+      background-color: $topic-bg-color;
+      backdrop-filter: blur(20px);
+      border-radius: 134px;
+    }
+  }
+
+  &_description {
+    color: $description-text-color;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  &_review {
+    @include global.flex($justify: space-between, $align: center);
+    width: 100%;
+
+    span {
+      color: $sold-text-color;
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+}
