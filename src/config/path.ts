@@ -1,16 +1,26 @@
 const PRODUCT_PATH = '/product';
 const CONSULTANT_PATH = '/consultant';
+const PROFILE_PATH = '/profile';
+const MANAGEMENT_PATH = '/management'
 
 export const PATH = {
     home: '/',
-    management: '/management',
-    consultant: CONSULTANT_PATH,
-    consultantDetail: CONSULTANT_PATH + '/:slug',
+    signup: '/signup',
+    signin: '/signin',
+    resetPassword: '/reset-password',
     product: PRODUCT_PATH,
     productDetail: PRODUCT_PATH + '/:slug',
-    signin: '/signin',
-    signup: '/signup',
-    resetPassword: '/reset-password'
+    consultant: CONSULTANT_PATH,
+    consultantDetail: CONSULTANT_PATH + '/:slug',
+    cart: '/cart',
+    purchase: '/purchase',
+    profile: PROFILE_PATH,
+    bank: PROFILE_PATH + '/bank',
+    management: MANAGEMENT_PATH,
+    statistic: MANAGEMENT_PATH + "/statistic",
+    schedule: MANAGEMENT_PATH + "/schedule",
+    productManagement: MANAGEMENT_PATH + PRODUCT_PATH,
+    changeProductDetail: MANAGEMENT_PATH + PRODUCT_PATH + '/:id'
 }
 
 export const NAV_LIST = [

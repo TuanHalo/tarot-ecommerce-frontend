@@ -1,14 +1,11 @@
 import Field from '@/components/atoms/Field';
 import './style.scss'
-import Checkbox from '@/components/atoms/Checkbox';
 import Button from '@/components/atoms/Button';
 import { Link } from 'react-router-dom';
 import { PATH } from '@/config/path';
-import { userService } from '@/services/user.service';
 import { regexp, required } from '@/utils/validate';
 import { useFrom } from '@/hooks/useForm';
-import { setToken } from '@/utils/token';
-import { setUser } from '@/utils/user';
+import { useAuth } from '@/stores/AuthContext';
 
 const SignIn = () => {
     const { values, register, validate } = useFrom({
@@ -21,16 +18,13 @@ const SignIn = () => {
         ],
     })
 
+    const { login } = useAuth()
+
     const onSubmitHandler = async (ev: any) => {
         ev.preventDefault();
 
         if (validate()) {
-            const user: any = await userService.signin(values as any)
-
-            setToken(user.accessToken)
-            console.log(user.accessToken)
-            setUser(user.user)
-            console.log(user.user)
+            login({...values as any})
         }
     }
 

@@ -1,0 +1,339 @@
+@use "@/styles/global" as global;
+
+$select-color: global.$sonic-silver;
+$select-bg-color: global.$white-80;
+
+.p-product {
+    &_search {
+        @include global.flex();
+        gap: 16px;
+        margin-bottom: 40px;
+
+        select {
+            border-radius: 8px;
+            padding: 16px 40px;
+            color: $select-color;
+            font-size: 20px;
+            font-weight: 400;
+            appearance: none;
+            background-color: $select-bg-color;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+
+    &_list {
+        @include global.flex($wrap: wrap);
+        gap: 30px;
+    }
+}
+
+$brief-bg-color: global.$black-20;
+$brief-title-color: global.$white;
+$brief-review-color: global.$white;
+$line-color: global.$white-80;
+$price-color: global.$american-yellow;
+$type-color: global.$white;
+$type-color-active: global.$black;
+$type-bg-color: global.$white-50;
+$type-bg-color-active: global.$white;
+$day-color: global.$white;
+$day-bg-color: global.$white-10;
+$day-color-active: global.$black;
+$day-bg-color-active: global.$white; 
+$timeList-color: global.$white;
+$time-color: global.$black;
+$time-bg-color: global.$white;
+$time-border-color: global.$sonic-silver;
+$time-color-active: global.$white;
+$time-bg-color-active: global.$american-yellow;
+$time-border-color-active: global.$american-yellow;
+$time-color-disable: global.$argent;
+$time-bg-color-disable: global.$bright-gray;
+$time-border-color-disable: global.$bright-gray;
+$consultant-info-bg-color: global.$white-15;
+$consultant-brief-bg-color: global.$white-15;
+$consultant-name-color: global.$white;
+$consultant-brief-color: global.$white;
+$description-title-color: global.$white;
+$description-desc-color: global.$white;
+$description-bg-color: global.$white-15;
+$others-title-color: global.$white;
+$others-link-color: global.$sunglow;
+$others-bg-color: global.$white-10;
+
+.p-productDetail {
+    @include global.flex($direction: column);
+    gap: 40px;
+
+    &_info {
+        @include global.flex();
+        gap: 30px;
+
+        &--img {
+
+            .img_selected {
+                width: 530px;
+                min-height: 650px;
+                border-radius: 8px;
+                margin-bottom: 24px;
+            }
+
+            .img_list {
+                @include global.flex($justify: space-between);
+
+                img {
+                    width: 110px;
+                    height: 136px;
+                    border-radius: 4px;
+                }
+            }
+        }
+
+        &--brief {
+            @include global.flex($direction: column);
+            gap: 40px;
+            font-weight: 400;
+            flex-grow: 1;
+            padding: 24px 44px;
+            background-color: $brief-bg-color;
+
+            .brief_title {
+                color: $brief-title-color;
+                font-size: 48px;
+            }
+
+            .brief_description {
+                @include global.flex($direction: column);
+                gap: 12px;
+                flex-grow: 1;
+
+                &--review {
+                    @include global.flex();
+                    color: $brief-review-color;
+                    font-size: 32px;
+                    gap: 32px;
+
+                    .review_total {
+                        padding-inline: 32px;
+                        border-inline: 1px solid $line-color;
+                    }
+
+                    .review_sold {}
+                }
+
+                &--price {
+                    @include global.flex();
+                    gap: 32px;
+                    color: $price-color;
+                    font-size: 64px;
+                }
+
+                &--type {
+                    @include global.flex($align: center);
+
+                    span {
+                        color: $type-color;
+                        font-size: 36px;
+                        font-weight: 400;
+                        margin-right: 48px;
+                    }
+
+                    .type_list {
+                        @include global.flex();
+                        gap: 16px;
+
+                        li {
+                            color: $type-color;
+                            font-size: 32px;
+                            font-weight: 400;
+                            padding: 8px 24px;
+                            border-radius: 4px;
+                            background-color: $type-bg-color;
+                            cursor: pointer;
+
+                            &.active {
+                                color: $type-color-active;
+                                background-color: $type-bg-color-active;
+                            }
+                        }
+                    }
+                }
+
+                &--timeChoose {
+                    @include global.flex($direction: column);
+                    flex-grow: 1;
+
+                    .timeChoose_day {
+                        @include global.flex($justify: space-around);
+                        color: $day-color;
+                        font-size: 32px;
+                        font-weight: 400;
+
+                        li {
+                            background-color: $day-bg-color;
+                            width: 100%;
+                            padding-block: 16px;
+                            text-align: center;
+                            cursor: pointer;
+        
+                            &.active {
+                                color: $day-color-active;
+                                background-color: $day-bg-color-active;
+                            }
+                        }
+                    }
+
+                    .timeChoose_time {
+                        @include global.flex($align: flex-start, $wrap: wrap);
+                        gap: 12px;
+                        background-color: $timeList-color;
+                        padding: 40px 32px;
+                        flex-grow: 1;
+                        overflow-y: auto;
+
+                        li {
+                            color: $time-color;
+                            font-size: 32px;
+                            font-weight: 400;
+                            padding: 8px 30.5px;
+                            border-radius: 4px;
+                            background-color: $time-bg-color;
+                            border: 1px solid $time-border-color;
+                            cursor: pointer;
+
+                            &.active {
+                                color: $time-color-active;
+                                background-color: $time-bg-color-active;
+                                border-color: $time-border-color-active;
+                            }
+
+                            &.disable {
+                                cursor: not-allowed;
+                                color: $time-color-disable;
+                                background-color: $time-bg-color-disable;
+                                border-color: $time-border-color-disable;}
+                        }
+                    }
+                }
+            }
+
+            .brief_action {
+                @include global.flex($justify: center);
+                gap: 8px;
+                margin-top: auto;
+
+                button {
+                    width: 283px;
+                }
+            }
+        }
+    }
+
+    &_consultant {
+        @include global.flex();
+        gap: 30px;
+         
+        &--info {
+            @include global.flex($align: center);
+            gap: 24px;
+            padding: 40px;
+            border-radius: 8px;
+            background-color: $consultant-info-bg-color;
+            backdrop-filter: blur(15px);
+
+            .info_avatar {
+                width: 208px;
+                aspect-ratio: 1;
+                border-radius: 50%;
+            }
+
+            .info_contact {
+
+                &--name {
+                    color: $consultant-name-color;
+                    font-size: 36px;
+                    font-weight: 400;
+                    margin-bottom: 16px;
+                }
+
+                &--action {
+                    @include global.flex();
+                    gap: 16px;
+
+                    button {
+                        width: 168px;
+                    }
+                }
+            }
+        }
+
+        &--brief {
+            background-color: $consultant-brief-bg-color;
+            flex-grow: 1;
+            padding: 66px 44px;
+            color: $consultant-brief-color;
+            font-size: 24px;
+            font-weight: 400;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            column-gap: 80px;
+            row-gap: 12px;
+
+            li {
+                @include global.flex($justify: space-between);
+            }
+        }
+    }
+
+    &_description {
+        @include global.flex($direction: column);
+        gap: 24px;
+        padding: 40px;
+        border-radius: 8px;
+        background-color: $description-bg-color;
+        backdrop-filter: blur(15px);
+
+        &--title {
+            color: $description-title-color;
+            font-size: 32px;
+            font-weight: 400;
+        }
+
+        &--desc {
+            color: $description-desc-color;
+            font-size: 24px;
+            font-weight: 400;
+        }
+    }
+
+    &_others {
+        padding: 40px;
+        border-radius: 8px;
+        background-color: $others-bg-color;
+
+        &--title {
+            @include global.flex($justify: space-between);
+
+            p {
+                color: $others-title-color;
+                font-size: 32px;
+                font-weight: 400;
+            }
+
+            a {
+                color: $others-link-color;
+                font-size: 24px;
+                font-weight: 400;
+            }
+        }
+
+        &--list {
+            @include global.flex($wrap: wrap);
+            margin-top: 24px;
+            gap: 30px;
+        }
+    }
+}

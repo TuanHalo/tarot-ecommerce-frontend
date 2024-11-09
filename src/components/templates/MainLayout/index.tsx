@@ -1,12 +1,15 @@
 import Footer from "@/components/organisms/Footer"
 import Header from "@/components/organisms/Header"
 import { Outlet } from "react-router-dom"
+import './style.scss'
 
 const MainLayout = () => {
     return (
         <>
             <Header />
-            <Outlet />
+            <div className="t-mainLayout">
+                <Outlet />
+            </div>
             <Footer />
         </>
     )

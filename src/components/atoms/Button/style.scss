@@ -2,15 +2,26 @@
 
 $btn-bg-color: global.$american-yellow-80;
 $btn-text-color: global.$white;
+$btn-bg-color-type2: global.$american-yellow-40;
 
 .a-button {
     background-color: $btn-bg-color;
-    padding: 16px 166px;
+    padding-block: 16px ;
     border-radius: 8px;
     color: $btn-text-color;
     font-size: 24px;
-    line-height: 36px;
     font-weight: 400;
     cursor: pointer;
     width: 472px;
+
+    &.type2 {
+        background-color: $btn-bg-color-type2;
+        backdrop-filter: blur(20px);
+    }
+
+    img {
+        width: 20px;
+        aspect-ratio: 1;
+        margin-right: 8px;
+    }
 }

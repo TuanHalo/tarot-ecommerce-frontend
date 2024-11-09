@@ -4,7 +4,7 @@ type FieldProps = {
     iconName : string,
     placeholder: string,
     value: string,
-    error: string,
+    error?: string,
     onChange: (ev: any) => void,
     isPassword?: boolean
 }

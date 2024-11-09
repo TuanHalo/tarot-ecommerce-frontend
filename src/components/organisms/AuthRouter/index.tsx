@@ -8,7 +8,9 @@ type AuthRouterProps = {
 const AuthRouter = ({ redirect = '/' }: AuthRouterProps) => {
     const { user } = useAuth()
 
-    if (user) return <Navigate to={redirect} />
+    if (user) {
+        return <Navigate to={redirect} />
+    }
     return <Outlet />
 }
 

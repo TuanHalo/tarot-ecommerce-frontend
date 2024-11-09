@@ -1,0 +1,20 @@
+@use '@/styles/global' as global;
+
+$tag-color: global.$white;
+
+.a-tag {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+
+    img {
+        width: 24px;
+        height: 24px;
+    }
+
+    span {
+        color: $tag-color;
+        font-size: 20px;
+        font-weight: 400;
+    }
+}

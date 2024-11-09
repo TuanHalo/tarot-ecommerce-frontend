@@ -1,6 +1,6 @@
 import { PATH } from "@/config/path";
+import { LoginUserDto } from "@/dtos/User/LoginUserDtos";
 import { UserDto } from "@/dtos/User/UserDtos";
-import { authService, LoginTypes } from "@/services/auth.service";
 import { userService } from "@/services/user.service";
 import { clearToken, setToken } from "@/utils/token";
 import { clearUser, getUser, setUser } from "@/utils/user";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 
 type AuthContextDtos = {
     user: UserDto | null,
-    login: (data: LoginTypes) => void,
+    login: (data: LoginUserDto) => void,
     logout: () => void
 }
 
@@ -30,17 +30,17 @@ export const AuthProvider = ({children} : AuthProviderProps) => {
 
     const navigate = useNavigate()
 
-    const login = async (data: LoginTypes) => {
+    const login = async (data: LoginUserDto) => {
         try {
-            const res = await authService.login(data)
+            const res: any = await userService.signin(data)
     
-            if (res.data) {
-                setToken(res.data)
+            if (res) {
+                setToken(res.accessToken)
 
-                const user = await userService.getProfile();
+                const user: any = await userService.getProfile();
 
-                setUser(user.data)
-                _setUser(user.data)
+                setUser(user)
+                _setUser(user)
                 navigate(PATH.home)
             }
         } catch (err: any) {
