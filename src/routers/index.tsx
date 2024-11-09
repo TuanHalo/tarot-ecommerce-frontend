@@ -1,7 +1,6 @@
 import Home from "../pages/home"
 import MainLayout from "../components/templates/MainLayout"
 import Consultant from "../pages/consultant"
-import { UserDto } from "@/dtos/UserDtos"
 import Product from "@/pages/product"
 import SignIn from "@/pages/signin"
 import SignUp from "@/pages/signup"
@@ -14,7 +13,7 @@ import AuthRouter from "@/components/organisms/AuthRouter"
 import ConsultantDetail from "@/pages/consultant/[slug]-id[id]"
 import ProductDetail from "@/pages/product/[slug]-id[id]"
 
-export const routers = (user : UserDto, login: () => void, logout: () => void) => [
+export const routers = [
     {
         element: <MainLayout />,
         children: [
@@ -47,7 +46,7 @@ export const routers = (user : UserDto, login: () => void, logout: () => void) =
                 ]
             },
             {
-                element: <AuthRouter user={user} redirect={PATH.home}/>,
+                element: <AuthRouter redirect={PATH.home}/>,
                 children: [
                     {
                         path: PATH.signin,
@@ -64,7 +63,7 @@ export const routers = (user : UserDto, login: () => void, logout: () => void) =
                 ]
             },
             {
-                element: <PrivateRouter user={user} redirect={PATH.signin}/>,
+                element: <PrivateRouter redirect={PATH.signin}/>,
                 children: [
                     {
                         path: PATH.management,

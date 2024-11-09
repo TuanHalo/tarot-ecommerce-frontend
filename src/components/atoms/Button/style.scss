@@ -1,5 +1,16 @@
 @use '@/styles/global' as global;
 
+$btn-bg-color: global.$american-yellow-80;
+$btn-text-color: global.$white;
+
 .a-button {
-    background-color: global.$casual-red;
+    background-color: $btn-bg-color;
+    padding: 16px 166px;
+    border-radius: 8px;
+    color: $btn-text-color;
+    font-size: 24px;
+    line-height: 36px;
+    font-weight: 400;
+    cursor: pointer;
+    width: 472px;
 }

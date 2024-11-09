@@ -1,12 +1,13 @@
 import { Navigate, Outlet } from "react-router-dom"
-import { UserDto } from "@/dtos/UserDtos"
+import { useAuth } from "@/stores/AuthContext"
 
 type PrivateRouterProps = {
-    user: UserDto,
     redirect?: string
 }
 
-const PrivateRouter = ({ user, redirect = '/'} : PrivateRouterProps) => {
+const PrivateRouter = ({ redirect = '/'} : PrivateRouterProps) => {
+    const { user } = useAuth();
+
     if (!user) return <Navigate to={redirect} />
     return <Outlet />
 }
