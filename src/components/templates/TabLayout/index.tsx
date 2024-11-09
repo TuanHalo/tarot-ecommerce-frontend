@@ -1,11 +1,11 @@
-import { Outlet } from "react-router-dom"
+import { Outlet } from "react-router-dom";
 
 const TabLayout = () => {
-    return (
-        <>
-            <Outlet />
-        </>
-    )
-}
+  return (
+    <>
+      <Outlet />
+    </>
+  );
+};
 
-export default TabLayout
+export default TabLayout;

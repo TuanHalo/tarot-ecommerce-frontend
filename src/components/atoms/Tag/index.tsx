@@ -1,17 +1,17 @@
-import './style.scss'
+import "./index.scss";
 
 type TagProps = {
-    icon: string,
-    content: string
-}
+  icon: string;
+  content: string;
+};
 
-const Tag = ({icon, content} : TagProps) => {
-    return (
-        <div className="a-tag">
-            <img src={icon} alt="" />
-            <span>{content}</span>
-        </div>
-    )
-}
+const Tag = ({ icon, content }: TagProps) => {
+  return (
+    <div className="a-tag">
+      <img src={icon} alt="" />
+      <span>{content}</span>
+    </div>
+  );
+};
 
-export default Tag
+export default Tag;

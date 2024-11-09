@@ -1,0 +1,28 @@
+$btn-text-color-type1: #ffffff;
+$btn-text-color-type2: #ffffff;
+$btn-bg-color-type1: #ebbc00cc;
+$btn-bg-color-type2: #ebbc0066;
+
+.a-button {
+  cursor: pointer;
+  border-radius: 8px;
+  font-size: 24px;
+  padding: 16px 40px;
+
+  &.type1 {
+    color: $btn-text-color-type1;
+    background-color: $btn-bg-color-type1;
+  }
+
+  &.type2 {
+    color: $btn-text-color-type2;
+    background-color: $btn-bg-color-type2;
+    backdrop-filter: blur(20px);
+  }
+
+  img {
+    width: 20px;
+    aspect-ratio: 1;
+    margin-right: 8px;
+  }
+}

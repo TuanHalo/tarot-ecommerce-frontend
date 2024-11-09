@@ -1,0 +1,52 @@
+@use "@/styles/global" as global;
+
+$card-bg-color: #ffffff26;
+$card-title-text-color: #ffffff;
+$card-price-text-color: #ffca40;
+$card-sold-text-color: #ffffff;
+
+.m-productCard {
+  aspect-ratio: 3 / 4;
+  border-radius: 24px;
+  backdrop-filter: blur(15px);
+  background-color: $card-bg-color;
+  overflow: hidden;
+
+  &_img {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+
+  &_top {
+    padding: 24px 24px 0px 24px;
+    margin-bottom: 43px;
+
+    &--name {
+      font-size: 36px;
+      color: $card-title-text-color;
+    }
+
+    &--tag {
+      @include global.flex();
+      gap: 8px;
+    }
+
+    &--price {
+      font-size: 36px;
+      color: $card-price-text-color;
+    }
+  }
+
+  &_bottom {
+    padding: 0px 24px 24px 24px;
+
+    &--review {
+      @include global.flex($justify: space-between, $align: center);
+
+      p {
+        font-size: 20px;
+        color: $card-sold-text-color;
+      }
+    }
+  }
+}

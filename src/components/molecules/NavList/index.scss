@@ -1,0 +1,22 @@
+@use "@/styles/global" as global;
+
+$nav-text-color: #ffffff;
+$nav-bg-color-active: #ff23d766;
+
+.m-navList {
+  @include global.flex($align: center);
+  gap: 40px;
+
+  &_item {
+    &--link {
+      color: $nav-text-color;
+      font-size: 24px;
+      padding: 16px 40px;
+
+      &.active {
+        background-color: $nav-bg-color-active;
+        border-radius: 400px;
+      }
+    }
+  }
+}

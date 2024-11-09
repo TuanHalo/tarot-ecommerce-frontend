@@ -1,0 +1,432 @@
+@use "@/styles/global" as global;
+
+$color: (
+  text: (
+    briefTitle: #ffffff,
+    briefReview: #ffffff,
+    price: #ebbc00,
+    type: #ffffff,
+    typeActive: #000000,
+    day: #ffffff,
+    dayActive: #000000,
+    time: #000000,
+    timeActive: #ffffff,
+    timeDisable: #c3c2c2,
+    consultantName: #ffffff,
+    consultantBrief: #ffffff,
+    descriptionTitle: #ffffff,
+    descriptionDesc: #ffffff,
+    othersTitle: #ffffff,
+    othersAll: #ffca40,
+    reviewOverall: #ebbc00,
+    reviewTab: #ffffff,
+    reviewListTitle: #ffffff,
+    reviewListTime: #ffffff,
+    reviewListComment: #ffffff,
+  ),
+  background: (
+    brief: #00000033,
+    type: #ffffff80,
+    typeActive: #ffffff,
+    day: #ffffff1a,
+    dayActive: #ffffff,
+    timeList: #ffffff,
+    time: #ffffff,
+    timeActive: #ebbc00,
+    timeDisable: #ebeaea,
+    consultantInfo: #ffffff26,
+    consultantBrief: #ffffff26,
+    description: #ffffff26,
+    others: #ffffff1a,
+    review: #ffffff1a,
+    reviewTab: #0000001a,
+    reviewTabActive: #be980033,
+    reviewList: #ffffff1a,
+  ),
+  border: (
+    time: #777777,
+    timeActive: #ebbc00,
+    timeDisable: #ebeaea,
+    reviewTab: #c9c9c9,
+    reviewTabActive: #ebbc00,
+  ),
+  line: (
+    review: #ffffffcc,
+    break: #c9c9c9,
+  ),
+);
+
+.p-productDetail {
+  @include global.flex($direction: column);
+  gap: 40px;
+
+  &_info {
+    @include global.flex();
+    gap: 30px;
+
+    &--img {
+      .img_selected {
+        width: 525px;
+        aspect-ratio: 3 / 4;
+        border-radius: 8px;
+        margin-bottom: 24px;
+      }
+
+      .img_list {
+        @include global.flex($justify: space-between);
+
+        img {
+          width: 110px;
+          aspect-ratio: 3 / 4;
+          border-radius: 4px;
+        }
+      }
+    }
+
+    &--brief {
+      @include global.flex($direction: column);
+      gap: 40px;
+      flex-grow: 1;
+      padding: 24px 44px;
+      background-color: map-get(map-get($color, background), brief);
+
+      .brief_title {
+        color: map-get(map-get($color, text), briefTitle);
+        font-size: 48px;
+      }
+
+      .brief_description {
+        @include global.flex($direction: column);
+        gap: 12px;
+        flex-grow: 1;
+
+        &--review {
+          @include global.flex();
+          color: map-get(map-get($color, text), briefReview);
+          font-size: 32px;
+          gap: 32px;
+
+          .review_total {
+            padding-inline: 32px;
+            border-inline: 1px solid map-get(map-get($color, line), review);
+          }
+
+          .review_sold {
+          }
+        }
+
+        &--price {
+          @include global.flex();
+          gap: 32px;
+          color: map-get(map-get($color, text), price);
+          font-size: 64px;
+        }
+
+        &--type {
+          @include global.flex($align: center);
+
+          span {
+            color: map-get(map-get($color, text), type);
+            font-size: 36px;
+            margin-right: 48px;
+          }
+
+          .type_list {
+            @include global.flex();
+            gap: 16px;
+
+            li {
+              color: map-get(map-get($color, text), type);
+              font-size: 32px;
+              padding: 8px 24px;
+              border-radius: 4px;
+              background-color: map-get(map-get($color, background), type);
+              cursor: pointer;
+
+              &.active {
+                color: map-get(map-get($color, text), typeActive);
+                background-color: map-get(
+                  map-get($color, background),
+                  typeActive
+                );
+              }
+            }
+          }
+        }
+
+        &--timeChoose {
+          @include global.flex($direction: column);
+          flex-grow: 1;
+
+          .timeChoose_day {
+            @include global.flex($justify: space-around);
+            color: map-get(map-get($color, text), day);
+            font-size: 32px;
+            font-weight: 400;
+
+            li {
+              background-color: map-get(map-get($color, background), day);
+              width: 100%;
+              padding-block: 16px;
+              text-align: center;
+              cursor: pointer;
+
+              &.active {
+                color: map-get(map-get($color, text), dayActive);
+                background-color: map-get(
+                  map-get($color, background),
+                  dayActive
+                );
+              }
+            }
+          }
+
+          .timeChoose_time {
+            @include global.flex($align: flex-start, $wrap: wrap);
+            gap: 12px;
+            background-color: map-get(map-get($color, background), timeList);
+            padding: 40px 32px;
+            flex-grow: 1;
+            overflow-y: auto;
+
+            li {
+              color: map-get(map-get($color, text), time);
+              font-size: 32px;
+              font-weight: 400;
+              padding: 8px 30.5px;
+              border-radius: 4px;
+              background-color: map-get(map-get($color, background), time);
+              border: 1px solid map-get(map-get($color, border), time);
+              cursor: pointer;
+
+              &.active {
+                color: map-get(map-get($color, text), timeActive);
+                background-color: map-get(
+                  map-get($color, background),
+                  timeActive
+                );
+                border-color: map-get(map-get($color, border), timeActive);
+              }
+
+              &.disable {
+                cursor: not-allowed;
+                color: map-get(map-get($color, text), timeDisable);
+                background-color: map-get(
+                  map-get($color, background),
+                  timeDisable
+                );
+                border-color: map-get(map-get($color, border), timeDisable);
+              }
+            }
+          }
+        }
+      }
+
+      .brief_action {
+        @include global.flex($justify: center);
+        gap: 8px;
+        margin-top: auto;
+
+        button {
+          width: 283px;
+        }
+      }
+    }
+  }
+
+  &_consultant {
+    @include global.flex();
+    gap: 30px;
+
+    &--info {
+      @include global.flex($align: center);
+      gap: 24px;
+      padding: 40px;
+      border-radius: 8px;
+      background-color: map-get(map-get($color, background), consultantInfo);
+      backdrop-filter: blur(15px);
+
+      .info_avatar {
+        width: 208px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+      }
+
+      .info_contact {
+        &--name {
+          color: map-get(map-get($color, text), consultantName);
+          font-size: 36px;
+          margin-bottom: 16px;
+        }
+
+        &--action {
+          @include global.flex();
+          gap: 16px;
+
+          button {
+            width: 168px;
+          }
+        }
+      }
+    }
+
+    &--brief {
+      background-color: map-get(map-get($color, background), consultantBrief);
+      flex-grow: 1;
+      padding: 66px 44px;
+      color: map-get(map-get($color, text), consultantBrief);
+      font-size: 24px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      column-gap: 80px;
+      row-gap: 12px;
+
+      li {
+        @include global.flex($justify: space-between);
+      }
+    }
+  }
+
+  &_description {
+    @include global.flex($direction: column);
+    gap: 24px;
+    padding: 40px;
+    border-radius: 8px;
+    background-color: map-get(map-get($color, background), description);
+    backdrop-filter: blur(15px);
+
+    &--title {
+      color: map-get(map-get($color, text), descriptionTitle);
+      font-size: 32px;
+      font-weight: 400;
+    }
+
+    &--desc {
+      color: map-get(map-get($color, text), descriptionDesc);
+      font-size: 24px;
+      font-weight: 400;
+    }
+  }
+
+  &_review {
+    background-color: map-get(map-get($color, background), review);
+    padding: 20px 40px;
+    border-radius: 8px;
+
+    &--brief {
+      @include global.flex();
+      border-bottom: 1px solid map-get(map-get($color, line), break);
+      padding-bottom: 40px;
+
+      .brief_overall {
+        p {
+          color: map-get(map-get($color, text), reviewOverall);
+          font-size: 40px;
+          text-align: center;
+
+          span {
+            font-size: 64px;
+          }
+        }
+
+        img {
+          width: 48px;
+        }
+      }
+
+      .brief_list {
+        @include global.flex();
+        gap: 12px;
+        flex-shrink: 1;
+        padding: 50px 75px;
+        font-size: 20px;
+        color: map-get(map-get($color, text), reviewTab);
+
+        li {
+          padding: 8px 24px;
+          background-color: map-get(map-get($color, background), reviewTab);
+          border: 2px solid map-get(map-get($color, border), reviewTab);
+          border-radius: 8px;
+          cursor: pointer;
+
+          &.active {
+            background-color: map-get(
+              map-get($color, background),
+              reviewTabActive
+            );
+            border-color: map-get(map-get($color, border), reviewTabActive);
+          }
+        }
+      }
+    }
+
+    &--list {
+      @include global.flex($direction: column);
+      gap: 16px;
+      margin-top: 40px;
+
+      .list_item {
+        @include global.flex($align: flex-start);
+        gap: 45px;
+        background-color: map-get(map-get($color, background), reviewList);
+        padding: 16px;
+        border-radius: 8px;
+
+        &--img {
+          width: 82px;
+          aspect-ratio: 1;
+          border-radius: 50%;
+        }
+
+        &--info {
+          .info_name {
+            color: map-get(map-get($color, text), reviewListTitle);
+            font-size: 20px;
+          }
+
+          img {
+            width: 20px;
+          }
+
+          .info_time {
+            color: map-get(map-get($color, text), reviewListTime);
+            font-size: 16px;
+          }
+
+          .info_cmt {
+            color: map-get(map-get($color, text), reviewListComment);
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  &_others {
+    padding: 40px;
+    border-radius: 8px;
+    background-color: map-get(map-get($color, background), others);
+
+    &--title {
+      @include global.flex($justify: space-between);
+
+      p {
+        color: map-get(map-get($color, text), othersTitle);
+        font-size: 32px;
+        font-weight: 400;
+      }
+
+      a {
+        color: map-get(map-get($color, text), othersAll);
+        font-size: 24px;
+        font-weight: 400;
+      }
+    }
+
+    &--list {
+      @include global.flex($wrap: wrap);
+      margin-top: 24px;
+      gap: 30px;
+    }
+  }
+}
