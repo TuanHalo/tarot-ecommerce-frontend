@@ -1,0 +1,74 @@
+@use "@/styles/global" as global;
+
+$day-color: #ffffff;
+$day-bg-color: #ffffff1a;
+$day-active-color: #000000;
+$day-active-bg-color: #ffffff;
+$timeList-bg-color: #ffffff;
+$time-color: #000000;
+$time-bg-color: #ffffff;
+$time-border-color: #777777;
+$time-active-color: #ffffff;
+$time-active-bg-color: #ebbc00;
+$time-active-border-color: #ebbc00;
+$time-disable-color: #c3c2c2;
+$time-disable-bg-color: #ebeaea;
+$time-disable-border-color: #ebeaea;
+
+.o-timeChoose {
+  @include global.flex($direction: column);
+  flex-grow: 1;
+
+  &_day {
+    @include global.flex($justify: space-around);
+    color: $day-color;
+    font-size: 32px;
+    font-weight: 400;
+
+    li {
+      background-color: $day-bg-color;
+      width: 100%;
+      padding-block: 16px;
+      text-align: center;
+      cursor: pointer;
+
+      &.active {
+        color: $day-active-color;
+        background-color: $day-active-bg-color;
+      }
+    }
+  }
+
+  &_time {
+    @include global.flex($align: flex-start, $wrap: wrap);
+    gap: 12px;
+    background-color: $timeList-bg-color;
+    padding: 40px 32px;
+    flex-grow: 1;
+    overflow-y: auto;
+
+    li {
+      color: $time-color;
+      font-size: 32px;
+      font-weight: 400;
+      padding: 8px 30.5px;
+      border-radius: 4px;
+      background-color: $time-bg-color;
+      border: 1px solid $time-border-color;
+      cursor: pointer;
+
+      &.active {
+        color: $time-active-color;
+        background-color: $time-active-bg-color;
+        border-color: $time-active-border-color;
+      }
+
+      &.disable {
+        cursor: not-allowed;
+        color: $time-disable-color;
+        background-color: $time-disable-bg-color;
+        border-color: $time-disable-border-color;
+      }
+    }
+  }
+}

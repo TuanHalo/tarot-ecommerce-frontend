@@ -1,0 +1,61 @@
+@use "@/styles/global" as global;
+
+$bg-color: #000000;
+$color: #ffffff;
+$border-color: #ffffff;
+
+.o-footer {
+  background-color: $bg-color;
+  padding: 115px 138px 120px 138px;
+  color: $color;
+
+  &_category {
+    display: grid;
+    grid-template-columns: repeat(5, auto);
+
+    &--item {
+      .item_title {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+
+      .item_list {
+        li {
+          font-size: 20px;
+          margin-top: 8px;
+
+          a {
+            position: relative;
+            color: $color;
+
+            &::after {
+              content: "";
+              position: absolute;
+              bottom: -4px;
+              left: 0;
+              display: block;
+              width: 100%;
+              border-top: 1.5px solid $border-color;
+            }
+          }
+        }
+      }
+    }
+
+    &--social {
+      ul {
+        @include global.flex();
+        gap: 40px;
+
+        img {
+          width: 80px;
+        }
+      }
+    }
+  }
+
+  &_copyright {
+    font-size: 20px;
+    margin-top: 80px;
+  }
+}

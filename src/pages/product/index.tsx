@@ -88,7 +88,9 @@ const Product = () => {
       </div>
       <ul className="p-product_list">
         {PRODUCT_LIST.map((product, index) => (
-          <ProductCard {...product} key={index} />
+          <li key={index}>
+            <ProductCard {...product} />
+          </li>
         ))}
       </ul>
     </div>

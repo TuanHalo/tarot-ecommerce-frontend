@@ -16,11 +16,11 @@ export const PATH = {
     purchase: '/purchase',
     profile: PROFILE_PATH,
     bank: PROFILE_PATH + '/bank',
+    statistic: PROFILE_PATH + "/statistic",
+    schedule: PROFILE_PATH + "/schedule",
+    productManagement: PROFILE_PATH + PRODUCT_PATH,
+    changeProductDetail: PROFILE_PATH + PRODUCT_PATH + '/:id',
     management: MANAGEMENT_PATH,
-    statistic: MANAGEMENT_PATH + "/statistic",
-    schedule: MANAGEMENT_PATH + "/schedule",
-    productManagement: MANAGEMENT_PATH + PRODUCT_PATH,
-    changeProductDetail: MANAGEMENT_PATH + PRODUCT_PATH + '/:id'
 }
 
 export const NAV_LIST = [

@@ -15,7 +15,7 @@ const SignIn = () => {
 
   const { login } = useAuth();
 
-  const onSubmitHandler = async (ev: SubmitEvent) => {
+  const onSubmitHandler = async (ev: React.FormEvent<HTMLFormElement>) => {
     ev.preventDefault();
 
     if (validate()) {

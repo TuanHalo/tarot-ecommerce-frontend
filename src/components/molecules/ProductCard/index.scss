@@ -6,7 +6,7 @@ $card-price-text-color: #ffca40;
 $card-sold-text-color: #ffffff;
 
 .m-productCard {
-  aspect-ratio: 3 / 4;
+  display: block;
   border-radius: 24px;
   backdrop-filter: blur(15px);
   background-color: $card-bg-color;

@@ -1,0 +1,45 @@
+@use "@/styles/global" as global;
+
+$note-color: #777777;
+$file-btn-color: #000000;
+$file-btn-border-color: #00000066;
+$title-color: #000000;
+
+.p-profile {
+  &_title {
+    color: $title-color;
+    font-size: 32px;
+  }
+
+  &_content {
+    @include global.flex();
+
+    &--left {
+      flex-grow: 1;
+    }
+
+    &--right {
+      @include global.flex($direction: column, $align: center);
+      gap: 40px;
+
+      .right_img {
+        width: 200px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+      }
+
+      .right_btn {
+        color: $file-btn-color;
+        font-size: 24px;
+        border: 1px solid $file-btn-border-color;
+        border-radius: 8px;
+        padding: 16px 90px;
+      }
+
+      .right_note {
+        font-size: 24px;
+        color: $note-color;
+      }
+    }
+  }
+}

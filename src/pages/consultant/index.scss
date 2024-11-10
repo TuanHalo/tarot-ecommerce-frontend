@@ -4,6 +4,8 @@ $select-text-color: #777777;
 $select-bg-color: #ffffffcc;
 
 .p-consultant {
+  padding-block: 60px;
+
   &_search {
     @include global.flex();
     gap: 16px;
@@ -26,5 +28,9 @@ $select-bg-color: #ffffffcc;
   &_list {
     @include global.flex($wrap: wrap);
     gap: 30px;
+
+    &--item {
+      flex: 0 1 530px;
+    }
   }
 }

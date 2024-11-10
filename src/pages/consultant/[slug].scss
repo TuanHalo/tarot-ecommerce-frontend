@@ -1,0 +1,56 @@
+@use "@/styles/global" as global;
+
+$view-bg-color: #ffffff1a;
+$tag-color: #ffffff;
+$tag-active-color: #000000;
+$tag-bg-color: #ffffff1a;
+$tag-active-bg-color: #ffffff;
+
+.p-consultantDetail {
+  padding-block: 60px;
+
+  &_info {
+    @include global.flex();
+    gap: 30px;
+  }
+
+  &_list {
+    margin-top: 24px;
+    &--tag {
+      @include global.flex();
+
+      p {
+        font-size: 24px;
+        color: $tag-color;
+        background-color: $tag-bg-color;
+        padding: 16px 80px;
+
+        &.active {
+          color: $tag-active-color;
+          background-color: $tag-active-bg-color;
+        }
+      }
+    }
+
+    &--view {
+      &.product {
+        background-color: $view-bg-color;
+        padding: 40px;
+      }
+      border-radius: 8px;
+      border-top-left-radius: 0;
+
+      .view_list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 30px;
+      }
+
+      &.comment {
+        .view_list {
+          display: block;
+        }
+      }
+    }
+  }
+}

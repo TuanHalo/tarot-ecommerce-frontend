@@ -1,11 +1,17 @@
-import { PATH } from "@/config/path";
 import { Link } from "react-router-dom";
 import "./index.scss";
 
-const Logo = () => {
+type LogoProps = {
+  link: string;
+  icon: string;
+  name?: string;
+};
+
+const Logo = ({ link, icon, name = "" }: LogoProps) => {
   return (
-    <Link to={PATH.home} className="a-logo">
-      <img src="/images/logo.svg" alt="" />
+    <Link to={link} className="a-logo">
+      <img src={`/images/${icon}.svg`} alt="" />
+      {name ? <p>{name}</p> : ""}
     </Link>
   );
 };

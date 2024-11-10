@@ -1,0 +1,41 @@
+@use "@/styles/global" as global;
+
+$bg-color: #ffffff1a;
+$title-color: #ffffff;
+$time-color: #ffffff;
+$cmt-color: #ffffff;
+
+.m-commentReview {
+  @include global.flex($align: flex-start);
+  gap: 45px;
+  background-color: $bg-color;
+  padding: 16px;
+  border-radius: 8px;
+
+  &_img {
+    width: 82px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+  }
+
+  &_info {
+    &--name {
+      color: $title-color;
+      font-size: 20px;
+    }
+
+    img {
+      width: 20px;
+    }
+
+    &--time {
+      color: $time-color;
+      font-size: 16px;
+    }
+
+    &--cmt {
+      color: $cmt-color;
+      font-size: 20px;
+    }
+  }
+}

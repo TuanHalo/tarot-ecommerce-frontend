@@ -1,6 +1,28 @@
+@use "@/styles/global" as global;
+
+$color: #000000;
+$underline: #000000;
+
 .a-logo {
+  color: $color;
+  @include global.flex($direction: column, $align: center);
+  gap: 4px;
+
   img {
     width: 70px;
     aspect-ratio: 1;
+  }
+
+  p {
+    font-size: 24px;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: "";
+      display: block;
+      width: 100%;
+      border-bottom: 1px solid $underline;
+    }
   }
 }
