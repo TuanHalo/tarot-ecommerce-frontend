@@ -4,7 +4,7 @@ import { UserDto } from "@/dtos/User/UserDtos";
 import { userService } from "@/services/user.service";
 import { clearToken, setToken } from "@/utils/token";
 import { clearUser, getUser, setUser } from "@/utils/user";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 type AuthContextDtos = {

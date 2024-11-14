@@ -1,9 +1,10 @@
 import ConsultantInfo from "@/components/molecules/ConsultantInfo";
 import "./[slug].scss";
 import BriefInfo from "@/components/molecules/BriefInfo";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Review from "@/components/organisms/Review";
 import ProductCard from "@/components/molecules/ProductCard";
+import { productService } from "@/services/product.service";
 
 const CONSULTANT_BRIEF = {
   "Sản phẩm": 10,
@@ -14,59 +15,6 @@ const CONSULTANT_BRIEF = {
   "Tham gia": "...",
   "Chủ đề": "Gia đình, tình yêu, ...",
 };
-
-const PRODUCT_LIST = [
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-];
 
 const REVIEW_COMMENT = [
   {
@@ -101,6 +49,16 @@ const REVIEW_COMMENT = [
 
 const ConsultantDetail = () => {
   const [isProduct, setIsProduct] = useState(true);
+  const [productList, setProductList] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const res: any = await productService.getAll("");
+    if (res) setProductList(res);
+  };
 
   return (
     <div className="p-consultantDetail">
@@ -137,9 +95,9 @@ const ConsultantDetail = () => {
         >
           {isProduct ? (
             <ul className="view_list">
-              {PRODUCT_LIST.map((p, i) => (
-                <li key={i}>
-                  <ProductCard {...p} />
+              {productList.map((product: any, index) => (
+                <li key={index}>
+                  <ProductCard {...product} />
                 </li>
               ))}
             </ul>

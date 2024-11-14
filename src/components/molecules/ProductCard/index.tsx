@@ -1,7 +1,7 @@
 import Star from "@/components/atoms/Star";
 import Tag from "@/components/atoms/Tag";
 import "./index.scss";
-import { generatePath, Link, Navigate } from "react-router-dom";
+import { generatePath, Link } from "react-router-dom";
 import { PATH } from "@/config/path";
 
 type ProductCardProps = {
