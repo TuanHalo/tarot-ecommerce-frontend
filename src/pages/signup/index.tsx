@@ -6,10 +6,9 @@ import { Link } from "react-router-dom";
 import { PATH } from "@/config/path";
 import { useFrom } from "@/hooks/useForm";
 import { regexp, required } from "@/utils/validate";
-import { userService } from "@/services/user.service";
 
 const SignUp = () => {
-  const { values, register, validate } = useFrom({
+  const { register, validate } = useFrom({
     name: [required()],
     email: [required(), regexp("email")],
     password: [required()],
@@ -20,11 +19,6 @@ const SignUp = () => {
     ev.preventDefault();
 
     if (validate()) {
-      const user = await userService.signup({
-        name: values.name,
-        email: values.email,
-        password: values.password,
-      });
     }
   };
 
