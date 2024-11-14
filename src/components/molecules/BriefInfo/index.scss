@@ -1,0 +1,20 @@
+@use "@/styles/global" as global;
+
+$bg-color: #ffffff26;
+$color: #ffffff;
+
+.m-briefInfo {
+  background-color: $bg-color;
+  flex-grow: 1;
+  padding: 66px 44px;
+  color: $color;
+  font-size: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 80px;
+  row-gap: 12px;
+
+  li {
+    @include global.flex($justify: space-between, $align: flex-start);
+  }
+}

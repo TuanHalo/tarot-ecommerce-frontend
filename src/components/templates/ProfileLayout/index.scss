@@ -1,0 +1,66 @@
+@use "@/styles/global" as global;
+
+$info-color: #ffca40;
+$left-bg-color: #ffffff26;
+$item-color: #ffffff;
+$item-active-bg-color: #ff23d766;
+$right-bg-color: #ffffff;
+
+.t-profileLayout {
+  @include global.flex();
+
+  &_left {
+    background-color: $left-bg-color;
+    backdrop-filter: blur(15px);
+    padding: 40px;
+
+    &--info {
+      @include global.flex($align: center);
+      gap: 24px;
+
+      img {
+        width: 100px;
+        aspect-ratio: 1;
+        border-radius: 50%;
+      }
+
+      p {
+        color: $info-color;
+        font-size: 36px;
+      }
+    }
+
+    &--list {
+      margin-top: 60px;
+      @include global.flex($direction: column);
+      gap: 24px;
+
+      .list_item {
+        a {
+          color: $item-color;
+          font-size: 32px;
+          @include global.flex($align: center);
+          gap: 10px;
+          padding: 14px 40px;
+          border-radius: 8px;
+
+          img {
+            width: 40px;
+            aspect-ratio: 1;
+          }
+
+          &.active {
+            background-color: $item-active-bg-color;
+            backdrop-filter: blur(20px);
+          }
+        }
+      }
+    }
+  }
+
+  &_right {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: $right-bg-color;
+  }
+}

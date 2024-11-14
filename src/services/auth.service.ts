@@ -1,12 +1,7 @@
-import { api, AUTHENTICATION_API } from "@/config/api"
-
-export type LoginTypes = {
-    username: string,
-    password: string,
-}
+import { api, AUTHENTICATION_API } from "@/config/api";
 
 export const authService = {
-    login(data: LoginTypes) {
-        return api.post(`${AUTHENTICATION_API}/login`, data)
-    }
-}
+  refreshToken() {
+    return api.post(`${AUTHENTICATION_API}/refresh-token`);
+  },
+};

@@ -1,9 +1,10 @@
 import Star from "@/components/atoms/Star";
-import { Link } from "react-router-dom";
+import { generatePath, Link } from "react-router-dom";
 import "./index.scss";
+import { PATH } from "@/config/path";
 
 type ConsultantCardProps = {
-  link: string;
+  id: string;
   img: string;
   name: string;
   topic: string[];
@@ -13,7 +14,7 @@ type ConsultantCardProps = {
 };
 
 const ConsultantCard = ({
-  link,
+  id,
   img,
   name,
   topic,
@@ -21,6 +22,8 @@ const ConsultantCard = ({
   review,
   sold,
 }: ConsultantCardProps) => {
+  const link = generatePath(PATH.consultantDetail, { slug: id });
+
   return (
     <Link to={link} className="m-consultantCard">
       <img src={img} alt="" className="m-consultantCard_img" />

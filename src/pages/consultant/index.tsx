@@ -5,7 +5,7 @@ import "./index.scss";
 
 const CONSULTANT_LIST = [
   {
-    link: "/",
+    id: "123",
     img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
     name: "Alicia Keys",
     topic: ["Gia đình", "Tình yêu", "Tình yêu", "Mối quan hệ"],
@@ -15,7 +15,7 @@ const CONSULTANT_LIST = [
     sold: 10000,
   },
   {
-    link: "/",
+    id: "125",
     img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
     name: "Alicia Keys",
     topic: ["Gia đình", "Tình yêu", "Tình yêu", "Mối quan hệ"],
@@ -25,7 +25,7 @@ const CONSULTANT_LIST = [
     sold: 10000,
   },
   {
-    link: "/",
+    id: "127",
     img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
     name: "Alicia Keys",
     topic: ["Gia đình", "Tình yêu", "Mối quan hệ"],
@@ -35,7 +35,7 @@ const CONSULTANT_LIST = [
     sold: 10000,
   },
   {
-    link: "/",
+    id: "130",
     img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
     name: "Alicia Keys",
     topic: ["Gia đình", "Tình yêu", "Tình yêu", "Mối quan hệ"],
@@ -68,7 +68,9 @@ const Consultant = () => {
       </div>
       <ul className="p-consultant_list">
         {CONSULTANT_LIST.map((consultant, index) => (
-          <ConsultantCard {...consultant} key={index} />
+          <li key={index} className="p-consultant_list--item">
+            <ConsultantCard {...consultant} key={index} />
+          </li>
         ))}
       </ul>
     </div>

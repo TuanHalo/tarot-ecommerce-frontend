@@ -1,0 +1,66 @@
+@use "@/styles/global" as global;
+
+$bg-color: #ffffff1a;
+$line-color: #c9c9c9;
+$overall-color: #ebbc00;
+$tab-color: #ffffff;
+$tab-bg-color: #0000001a;
+$tab-active-bg-color: #be980033;
+$tab-border-color: #c9c9c9;
+$tab-active-border-color: #ebbc00;
+
+.o-review {
+  background-color: $bg-color;
+  padding: 20px 40px;
+  border-radius: 8px;
+
+  &_brief {
+    @include global.flex();
+    border-bottom: 1px solid $line-color;
+    padding-bottom: 40px;
+
+    &--overall {
+      p {
+        color: $overall-color;
+        font-size: 40px;
+        text-align: center;
+
+        span {
+          font-size: 64px;
+        }
+      }
+
+      img {
+        width: 48px;
+      }
+    }
+
+    &--list {
+      @include global.flex();
+      gap: 12px;
+      flex-shrink: 1;
+      padding: 50px 75px;
+      font-size: 20px;
+      color: $tab-color;
+
+      li {
+        padding: 8px 24px;
+        background-color: $tab-bg-color;
+        border: 2px solid $tab-border-color;
+        border-radius: 8px;
+        cursor: pointer;
+
+        &.active {
+          background-color: $tab-active-bg-color;
+          border-color: $tab-active-border-color;
+        }
+      }
+    }
+  }
+
+  &_list {
+    @include global.flex($direction: column);
+    gap: 16px;
+    margin-top: 40px;
+  }
+}

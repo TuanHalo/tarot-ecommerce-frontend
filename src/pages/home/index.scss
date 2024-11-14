@@ -1,0 +1,175 @@
+@use "@/styles/global" as global;
+
+$welcome-color: #ffffff;
+$aboutUs-color: #ffffff;
+$aboutUs-bg-color: #ff23d766;
+$category-color: #000000;
+$category-bg-color: #ffffff;
+$ready-color: #ffffff;
+$review-color: #ffffff;
+$review-bg-color: #ff23d766;
+$review-border-color: #ffffff;
+
+.p-home {
+  &_welcome {
+    color: $welcome-color;
+    margin-block: 290px;
+
+    h2 {
+      font-size: 96px;
+    }
+
+    p {
+      font-size: 20px;
+      margin-block: 10px 50px;
+      width: 50%;
+    }
+
+    button {
+      width: 475px;
+    }
+  }
+
+  &_aboutUs {
+    position: relative;
+    color: $aboutUs-color;
+    padding-block: 40px;
+
+    h3 {
+      font-size: 48px;
+    }
+
+    p {
+      font-size: 20px;
+      width: 50%;
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      background-color: $aboutUs-bg-color;
+      backdrop-filter: blur(20px);
+      z-index: -1;
+      width: 100vw;
+    }
+  }
+
+  &_category {
+    position: relative;
+    padding-block: 40px;
+    color: $category-color;
+
+    &--title {
+      @include global.flex($justify: space-between);
+
+      h3 {
+        font-size: 48px;
+      }
+
+      a {
+        font-size: 24px;
+        color: $category-color;
+        text-decoration: underline;
+      }
+    }
+
+    &--list {
+      margin-top: 24px;
+      @include global.flex($justify: space-around);
+
+      img {
+        width: 200px !important;
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      background-color: $category-bg-color;
+      backdrop-filter: blur(20px);
+      z-index: -1;
+      width: 100vw;
+    }
+  }
+
+  &_ready {
+    color: $ready-color;
+    padding-block: 60px;
+
+    h3 {
+      font-size: 48px;
+      margin-bottom: 24px;
+    }
+
+    p {
+      font-size: 24px;
+      margin-bottom: 60px;
+    }
+
+    &--list {
+      @include global.flex($justify: space-between, $wrap: wrap);
+      gap: 30px;
+
+      .list_item {
+        flex: 1 1 0;
+      }
+    }
+  }
+
+  &_review {
+    position: relative;
+    color: $review-color;
+    padding-block: 40px;
+
+    &--title {
+      font-size: 48px;
+      margin-bottom: 34px;
+    }
+
+    &--list {
+      @include global.flex();
+
+      .list_item {
+        padding: 40px 25px;
+        text-align: center;
+
+        &:not(:last-child) {
+          border-right: 1px solid $review-border-color;
+        }
+
+        &--desc {
+          font-size: 20px;
+        }
+
+        &--name {
+          margin-top: 16px;
+          font-size: 24px;
+        }
+      }
+    }
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 50%;
+      bottom: 0;
+      transform: translateX(-50%);
+      background-color: $review-bg-color;
+      backdrop-filter: blur(20px);
+      z-index: -1;
+      width: 100vw;
+    }
+  }
+}

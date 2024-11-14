@@ -1,75 +1,23 @@
 import ProductCard from "@/components/molecules/ProductCard";
 import "./index.scss";
 import Field from "@/components/atoms/Field";
-import { useState } from "react";
-
-const PRODUCT_LIST = [
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-  {
-    id: "id1",
-    img: "https://th.bing.com/th/id/OIP.aiNrntE7HWS0Wg6UKj21jAHaE5?rs=1&pid=ImgDetMain",
-    name: "Product 1",
-    time: 30,
-    topic: "Gia đình",
-    price: 88888,
-    review: 3.5,
-    sold: 10000,
-  },
-];
+import { useEffect, useState } from "react";
+import { productService } from "@/services/product.service";
 
 const Product = () => {
   const [value, setValue] = useState("");
   const changeHandler = (ev: React.ChangeEvent<HTMLInputElement>) => {
     setValue(ev.target.value);
+  };
+  const [productList, setProductList] = useState([]);
+
+  useEffect(() => {
+    fetchData();
+  }, []);
+
+  const fetchData = async () => {
+    const res: any = await productService.getAll("");
+    if (res) setProductList(res);
   };
 
   return (
@@ -87,8 +35,10 @@ const Product = () => {
         />
       </div>
       <ul className="p-product_list">
-        {PRODUCT_LIST.map((product, index) => (
-          <ProductCard {...product} key={index} />
+        {productList.map((product: any, index) => (
+          <li key={index}>
+            <ProductCard {...product} />
+          </li>
         ))}
       </ul>
     </div>

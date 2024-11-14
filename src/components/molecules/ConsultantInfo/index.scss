@@ -1,0 +1,74 @@
+@use "@/styles/global" as global;
+
+$bg-color: #ffffff26;
+$name-color: #ffffff;
+$name-long-color: #ffca40;
+$desc-color: #ffffff;
+
+.m-consultantInfo {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: repeat(3, auto);
+  column-gap: 24px;
+  padding: 40px;
+  border-radius: 8px;
+  background-color: $bg-color;
+  backdrop-filter: blur(15px);
+
+  &_avatar {
+    width: 208px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    grid-row: span 2;
+  }
+
+  &_brief {
+    @include global.flex($align: flex-end);
+
+    &--name {
+      color: $name-color;
+      font-size: 36px;
+      margin-bottom: 16px;
+    }
+  }
+
+  &_action {
+    @include global.flex($align: flex-start);
+    gap: 16px;
+
+    button {
+      width: 168px;
+    }
+  }
+
+  &.long {
+    .m-consultantInfo_avatar {
+    }
+
+    .m-consultantInfo_brief {
+      align-items: flex-start;
+      flex-direction: column;
+      max-width: 350px;
+
+      &--name {
+        color: $name-long-color;
+        margin-bottom: 0;
+      }
+
+      &--desc {
+        color: $desc-color;
+        font-size: 20px;
+      }
+    }
+
+    .m-consultantInfo_action {
+      grid-column: span 2;
+      gap: 24px;
+      margin-top: 24px;
+
+      button {
+        width: 100%;
+      }
+    }
+  }
+}

@@ -8,13 +8,13 @@ $description-text-color: #ffffff;
 $sold-text-color: #ffffff;
 
 .m-consultantCard {
-  @include global.flex(column, center, center);
-  flex: 0 0 530px;
+  @include global.flex(column, flex-start, center);
   gap: 24px;
   background-color: $card-bg-color;
   backdrop-filter: blur(15px);
   padding: 48px 32px;
   border-radius: 24px;
+  height: 100%;
 
   &_img {
     width: 320px;
@@ -51,6 +51,7 @@ $sold-text-color: #ffffff;
   &_review {
     @include global.flex($justify: space-between, $align: center);
     width: 100%;
+    margin-top: auto;
 
     span {
       color: $sold-text-color;

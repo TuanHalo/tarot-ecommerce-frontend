@@ -4,6 +4,8 @@ $select-text-color: #777777;
 $select-bg-color: #ffffffcc;
 
 .p-product {
+  padding-block: 60px;
+
   &_search {
     @include global.flex();
     gap: 16px;
